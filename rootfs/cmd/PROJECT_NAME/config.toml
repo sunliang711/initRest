@@ -1,0 +1,33 @@
+[server]
+port=8089
+
+[mysql]
+enable = false
+dsn="<user>[:password]@tcp(localhost)/<Database>"
+
+[jwt]
+headerName = "token"
+# key to sign jwt
+key="<secret key>"
+# token 过期时间，单位小时；为零时表示不过期
+exp = 24
+
+[tls]
+enable = false
+certFile = "cert.pem"
+keyFile = "cert.key"
+
+[log]
+# available values :"debug" "info" "error" "fatal" "panic"
+level = "debug"
+logfile = "logfile"
+showFullTime = true
+reportCaller = false
+
+[cors]
+# "*" means allow all origins
+allowOrigins = [ "*" ]
+allowMethods = [ "GET", "POST" ]
+allowHeaders = [ "Origin", "Content-Length", "Content-Type", "token" ]
+# unit: second
+maxAge = 43200
