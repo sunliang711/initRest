@@ -28,6 +28,6 @@ reportCaller = false
 # "*" means allow all origins
 allowOrigins = [ "*" ]
 allowMethods = [ "GET", "POST" ]
-allowHeaders = [ "Origin", "Content-Length", "Content-Type", "token" ]
+allowHeaders = [ "Origin", "Content-Length", "Content-Type" ]
 # unit: second
 maxAge = 43200

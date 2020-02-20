@@ -67,7 +67,7 @@ install(){
 
     rsync -a "${root}/rootfs/" ${dest}
 
-    mv cmd/PROJECT_NAME "cmd/${projectName}"
+    mv cmd/PROJECT_NAME "cmd/${projectName##*/}"
 
     ( find . -iname "*.go" -print0 | xargs -0 perl -i -pe "s|<PROJECT_NAME>|${projectName}|" )
     ( go mod init ${projectName} && go mod tidy )
