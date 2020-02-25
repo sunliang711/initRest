@@ -12,11 +12,17 @@ import (
 
 func main() {
 	if viper.GetBool("mysql.enable") {
-		log.Infof("Contect to mysql...")
 		dsn := viper.GetString("mysql.dsn")
 		models.InitMysql(dsn)
 	} else {
-		log.Warn("Mysql is disabled.")
+		log.Info("Mysql is disabled.")
+	}
+
+	if viper.GetBool("mongodb.enable") {
+		dsn := viper.GetString("mongodb.url")
+		models.InitMongo(dsn)
+	} else {
+		log.Info("Mongodb is disabled.")
 	}
 
 	addr := fmt.Sprintf(":%d", viper.GetInt("server.port"))

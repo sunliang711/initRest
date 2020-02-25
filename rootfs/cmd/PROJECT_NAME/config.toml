@@ -3,7 +3,12 @@ port=8089
 
 [mysql]
 enable = false
+# <user>[:password]@tcp(localhost)/<Database>
 dsn="<user>[:password]@tcp(localhost)/<Database>"
+
+[mongodb]
+enable = false
+url="mongodb://localhost:27017"
 
 [jwt]
 headerName = "token"
