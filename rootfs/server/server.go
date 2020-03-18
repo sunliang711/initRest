@@ -28,9 +28,12 @@ func StartServer(addr string, tls bool, certFile string, keyFile string) {
 	router.Use(cors.New(corsCfg))
 
 	// Put normal handlers below
+	router.GET("/health", handlers.Health)
 
-	router.Use(handlers.AuthMiddleware)
 	// Put need-auth handlers below
+	// router.GET("/PATH", handlers.AuthMiddleware)
+	// router.POST("/PATH", handlers.AuthMiddleware)
+
 
 	logrus.Infof("Start server on %v, tls enabled: %v", addr, tls)
 	if tls {
