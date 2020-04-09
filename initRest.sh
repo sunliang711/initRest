@@ -18,11 +18,12 @@ usage(){
 exit 1
 }
 
-if [ -n $GOPATH ];then
-    destPrefix=$GOPATH/src
-else
-    destPrefix=$HOME/go/src
-fi
+# if [ -n $GOPATH ];then
+#     destPrefix=$GOPATH/src
+# else
+#     destPrefix=$HOME/go/src
+# fi
+destPrefix=$HOMNE/Workspace/go/src
 
 install(){
     projectName=${1}

@@ -1,7 +1,7 @@
-package handlers
+package middleware
 
 import (
-	"<PROJECT_NAME>/utils"
+	"haha/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
@@ -11,7 +11,7 @@ const (
 	tokenExpired = "Token expired"
 )
 
-func AuthMiddleware(c *gin.Context) {
+func Auth(c *gin.Context) {
 	token := c.Request.Header.Get(viper.GetString("jwt.headerName"))
 	_, err := utils.ParseJwtToken(token, viper.GetString("jwt.key"))
 	if err != nil {
