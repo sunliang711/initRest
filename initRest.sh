@@ -23,7 +23,7 @@ exit 1
 # else
 #     destPrefix=$HOME/go/src
 # fi
-destPrefix=$HOMNE/Workspace/go/src
+destPrefix=$HOME/Workspace/go/src
 
 install(){
     projectName=${1}
