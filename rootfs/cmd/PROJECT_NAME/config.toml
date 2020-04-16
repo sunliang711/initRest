@@ -25,7 +25,7 @@ keyFile = "cert.key"
 [log]
 # available values :"debug" "info" "error" "fatal" "panic"
 level = "debug"
-logfile = "logfile"
+logfile = "<PROJECT_NAME>.log"
 showFullTime = true
 reportCaller = false
 
