@@ -4,7 +4,7 @@ import (
 	"io"
 	"os"
 
-	"haha/utils"
+	"<PROJECT_NAME>/utils"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"

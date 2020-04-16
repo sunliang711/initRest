@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	_ "haha/config"
-	"haha/models"
-	"haha/server"
+	_ "<PROJECT_NAME>/config"
+	"<PROJECT_NAME>/models"
+	"<PROJECT_NAME>/server"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )

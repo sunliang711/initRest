@@ -3,8 +3,7 @@ package server
 import (
 	"time"
 
-	"haha/handlers"
-	// "haha/middleware"
+	"<PROJECT_NAME>/handlers"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"

@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"haha/utils"
+	"<PROJECT_NAME>/utils"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
