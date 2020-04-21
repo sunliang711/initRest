@@ -1,5 +1,5 @@
 [server]
-port=8089
+port=8080
 
 [mysql]
 enable = false
@@ -25,7 +25,8 @@ keyFile = "cert.key"
 [log]
 # available values :"debug" "info" "error" "fatal" "panic"
 level = "debug"
-logfile = "<PROJECT_NAME>.log"
+# logfile = "<PROJECT_NAME>.log"
+logfile = ""
 showFullTime = true
 reportCaller = false
 

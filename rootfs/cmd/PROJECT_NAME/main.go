@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	_ "<PROJECT_NAME>/config"
+	"github.com/sunliang711/goutils/config"
 	"<PROJECT_NAME>/models"
 	"<PROJECT_NAME>/server"
 	log "github.com/sirupsen/logrus"
@@ -11,6 +11,11 @@ import (
 )
 
 func main() {
+	err := config.InitConfigLogger()
+	if err != nil{
+		panic(err)
+	}
+
 	if viper.GetBool("mysql.enable") {
 		dsn := viper.GetString("mysql.dsn")
 		models.InitMysql(dsn)

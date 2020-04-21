@@ -10,7 +10,7 @@ import (
 	"github.com/spf13/viper"
 )
 
-func init() {
+func Init() {
 	configPath := pflag.StringP("config", "c", "config.toml", "config file")
 	pflag.Parse()
 	logrus.Info("Config file: ", *configPath)
@@ -38,7 +38,7 @@ func init() {
             logrus.Fatalf("Open logfile: %v error: %v", logfilePath, err)
         }
         logrus.Infof("Logfile path: %v", logfilePath)
-        output = io.MultiWriter(handler, os.Stderr)
+        output = handler
     }else{
         output = os.Stderr
     }
