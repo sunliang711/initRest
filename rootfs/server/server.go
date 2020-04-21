@@ -24,7 +24,8 @@ func StartServer(addr string, tls bool, certFile string, keyFile string) {
 		AllowHeaders: viper.GetStringSlice("cors.allowHeaders"),
 		MaxAge:       time.Second * time.Duration(viper.GetInt("cors.maxAge")),
 	}
-	logrus.Infof("Cors settings: %+v", corsCfg)
+	logrus.Infof(utils.CorsConfigStringify(&corsCfg))
+
 	router.Use(cors.New(corsCfg))
 
 	// Put normal handlers below
