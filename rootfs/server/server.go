@@ -4,6 +4,8 @@ import (
 	"time"
 
 	"<PROJECT_NAME>/handlers"
+	"<PROJECT_NAME>/utils"
+
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
