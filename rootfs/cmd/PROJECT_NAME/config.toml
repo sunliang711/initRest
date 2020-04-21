@@ -5,6 +5,8 @@ port=8080
 enable = false
 # <user>[:password]@tcp(localhost)/<Database>
 dsn="<user>[:password]@tcp(localhost)/<Database>"
+maxIdleConns=0
+maxOpenConns=50
 
 [mongodb]
 enable = false

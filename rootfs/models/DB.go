@@ -9,10 +9,12 @@ import (
 	"github.com/sirupsen/logrus"
 
 	"github.com/sunliang711/goutils/mongodb"
-	"github.com/sunliang711/goutils/mysql"
+	umysql "github.com/sunliang711/goutils/mysql"
 
 	//"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
+
+	"github.com/spf13/viper"
 )
 
 var (
@@ -24,7 +26,7 @@ var (
 func InitMysql(dsn string) {
 	logrus.Infof("Try to connect to mysql: '%v'", dsn)
 	var err error
-	mysqlConn, err = mysql.New(dsn, 20, 20)
+	mysqlConn, err = umysql.New(dsn, viper.GetInt("mysql.maxIdleConns"), viper.GetInt("mysql.maxOpenConns"))
 	if err != nil {
 		panic(err)
 	}
