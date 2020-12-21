@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/sunliang711/goutils/config"
-	"<PROJECT_NAME>/models"
+	"<PROJECT_NAME>/database"
 	"<PROJECT_NAME>/server"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
@@ -18,14 +18,14 @@ func main() {
 
 	if viper.GetBool("mysql.enable") {
 		dsn := viper.GetString("mysql.dsn")
-		models.InitMysql(dsn)
+		database.InitMysql(dsn)
 	} else {
 		log.Info("Mysql is disabled.")
 	}
 
 	if viper.GetBool("mongodb.enable") {
 		dsn := viper.GetString("mongodb.url")
-		models.InitMongo(dsn)
+		database.InitMongo(dsn)
 	} else {
 		log.Info("Mongodb is disabled.")
 	}

@@ -3,9 +3,10 @@ port=8080
 
 [mysql]
 enable = false
-# <user>[:password]@tcp(address)/<Database>
+orm = false
+# <user>[:password]@tcp(address)/<Database>[?parseTime=true]
 # address: host[:port] | /path/to/unix/socket/file
-dsn="<user>[:password]@tcp(localhost)/<Database>"
+dsn="<user>[:password]@tcp(localhost)/<Database>[?parseTime=true]"
 maxIdleConns=0
 maxOpenConns=50
 
