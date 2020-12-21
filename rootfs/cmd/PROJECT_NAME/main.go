@@ -5,7 +5,7 @@ import (
 
 	"github.com/sunliang711/goutils/config"
 	"<PROJECT_NAME>/database"
-	"<PROJECT_NAME>/server"
+	"<PROJECT_NAME>/router"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )
@@ -34,5 +34,5 @@ func main() {
 	tls := viper.GetBool("tls.enable")
 	certFile := viper.GetString("tls.certFile")
 	keyFile := viper.GetString("tls.keyFile")
-	server.StartServer(addr, tls, certFile, keyFile)
+	router.StartServer(addr, tls, certFile, keyFile)
 }
