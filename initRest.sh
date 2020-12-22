@@ -68,6 +68,7 @@ install(){
 
     ( find . -iname "config.toml" -print0 | xargs -0 perl -i -pe "s|<PROJECT_NAME>|${projectName}|" )
     ( find . -iname "*.go" -print0 | xargs -0 perl -i -pe "s|<PROJECT_NAME>|${projectName}|" )
+    ( find . -iname "ctl" -print0 | xargs -0 perl -i -pe "s|<PROJECT_NAME>|${projectName}|" )
     ( go mod init ${projectName} && go mod tidy )
 
     # at last initial git commit

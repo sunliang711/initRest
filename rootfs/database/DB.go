@@ -4,6 +4,8 @@ import (
 	"context"
 	"database/sql"
 
+	_ "<PROJECT_NAME>/config"
+
 	// register mysql driver
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/sirupsen/logrus"
@@ -26,8 +28,25 @@ var (
 	MongoConn    *mongo.Client
 )
 
-//InitMysql open mysql with dsn
-func InitMysql(dsn string) {
+func init() {
+	logrus.Infof("database init()...")
+	if viper.GetBool("mysql.enable") {
+		dsn := viper.GetString("mysql.dsn")
+		initMysql(dsn)
+	} else {
+		logrus.Info("Mysql is disabled.")
+	}
+
+	if viper.GetBool("mongodb.enable") {
+		dsn := viper.GetString("mongodb.url")
+		initMongo(dsn)
+	} else {
+		logrus.Info("Mongodb is disabled.")
+	}
+}
+
+//initMysql open mysql with dsn
+func initMysql(dsn string) {
 	logrus.Infof("Try to connect to mysql: '%v'", dsn)
 	var err error
 	if viper.GetBool("mysql.orm") {
@@ -53,7 +72,7 @@ func CloseMysql() {
 }
 
 // InitMongo opens a mongodb connection
-func InitMongo(url string) {
+func initMongo(url string) {
 	logrus.Infof("Try to connect to mongodb: '%v'", url)
 	var err error
 	MongoConn, err = mongodb.New(url, 5)
