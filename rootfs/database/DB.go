@@ -62,13 +62,19 @@ func initMysql(dsn string) {
 			panic(err)
 		}
 	}
-	logrus.Infof("Connected to mysql: '%v'", dsn)
+	logrus.Infof("Connected to mysql")
 }
 
 //CloseMysql close mysql connection
-func CloseMysql() {
-	logrus.Infoln("Close mysql.")
-	MysqlConn.Close()
+func closeMysql() {
+	if viper.GetBool("mysql.enable") {
+		logrus.Infoln("Close mysql.")
+		if viper.GetBool("mysql.orm") {
+			MysqlORMConn.Close()
+		} else {
+			MysqlConn.Close()
+		}
+	}
 }
 
 // InitMongo opens a mongodb connection
@@ -79,10 +85,17 @@ func initMongo(url string) {
 	if err != nil {
 		panic(err)
 	}
-	logrus.Infof("Connected to mongodb: '%v'", url)
+	logrus.Infof("Connected to mongodb")
 }
 
-func CloseMongo() {
-	logrus.Infof("Close mongodb")
-	MongoConn.Disconnect(context.Background())
+func closeMongo() {
+	if viper.GetBool("mongodb.enable") {
+		logrus.Infof("Close mongodb")
+		MongoConn.Disconnect(context.Background())
+	}
+}
+
+func Release(){
+	closeMongo()
+	closeMysql()
 }

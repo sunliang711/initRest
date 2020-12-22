@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	_ "<PROJECT_NAME>/database"
+	"<PROJECT_NAME>/database"
 	"<PROJECT_NAME>/router"
 
 	"github.com/sirupsen/logrus"
@@ -12,6 +12,9 @@ import (
 
 func main() {
 	logrus.Infof("main()")
+	defer func(){
+		database.Release()
+	}()
 
 	addr := fmt.Sprintf(":%d", viper.GetInt("server.port"))
 	tls := viper.GetBool("tls.enable")
