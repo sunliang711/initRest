@@ -15,7 +15,7 @@ import (
 // StartServer starts gin server
 func StartServer(addr string, tls bool, certFile string, keyFile string) {
 	//MUST SetMode first
-	switch viper.GetString("server.mode") {
+	switch viper.GetString("server.gin_mode") {
 	case "debug":
 		gin.SetMode(gin.DebugMode)
 	case "release":
