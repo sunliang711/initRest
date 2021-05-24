@@ -72,7 +72,7 @@ install(){
     ( go mod init ${projectName} && go mod tidy )
 
     # at last initial git commit
-    ( git add . && git commit -m 'initial commit: this commit is commited by initgorestserver script' )
+    ( git add . && git commit -m 'initial commit: this commit is commited by initRest.sh script' )
 
 }
 

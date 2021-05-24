@@ -56,9 +56,9 @@ function runAsRoot(){
 ###############################################################################
 # TODO
 install(){
-    dest=$home/.bin
+    dest=$home/.local/bin
     if [ ! -d "$dest" ];then
-        mkdir -p "$dest"
+        mkdir -p "$dest" || { echo "create $dest directory failed;"; exit 1; }
     fi
     ln -sf ${thisDir}/initRest.sh "$dest"
     echo "add $dest to PATH if it not in PATH"
