@@ -17,7 +17,7 @@ func StartServer(addr string, tls bool, certFile string, keyFile string) {
 	//MUST SetMode first
 	switch viper.GetString("server.mode") {
 	case "debug":
-		gin.SetMode(gin.ReleaseMode)
+		gin.SetMode(gin.DebugMode)
 	case "release":
 		gin.SetMode(gin.ReleaseMode)
 	}
