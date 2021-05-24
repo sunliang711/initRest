@@ -15,7 +15,12 @@ import (
 // StartServer starts gin server
 func StartServer(addr string, tls bool, certFile string, keyFile string) {
 	//MUST SetMode first
-	gin.SetMode(gin.ReleaseMode)
+	switch viper.GetString("server.mode") {
+	case "debug":
+		gin.SetMode(gin.ReleaseMode)
+	case "release":
+		gin.SetMode(gin.ReleaseMode)
+	}
 	router := gin.New()
 	router.Use(gin.Recovery())
 	router.Use(gin.Logger())
