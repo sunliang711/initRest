@@ -26,10 +26,10 @@ func StartServer(addr string, tls bool, certFile string, keyFile string) {
 	router.Use(gin.Logger())
 
 	corsCfg := cors.Config{
-		AllowOrigins: viper.GetStringSlice("cors.allowOrigins"),
-		AllowMethods: viper.GetStringSlice("cors.allowMethods"),
-		AllowHeaders: viper.GetStringSlice("cors.allowHeaders"),
-		MaxAge:       time.Second * time.Duration(viper.GetInt("cors.maxAge")),
+		AllowOrigins: viper.GetStringSlice("cors.allow_origins"),
+		AllowMethods: viper.GetStringSlice("cors.allow_methods"),
+		AllowHeaders: viper.GetStringSlice("cors.allow_headers"),
+		MaxAge:       time.Second * time.Duration(viper.GetInt("cors.max_age")),
 	}
 	logrus.Infof(utils.CorsConfigStringify(&corsCfg))
 

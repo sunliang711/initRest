@@ -13,7 +13,7 @@ import (
 
 func init() {
 	logrus.Infof("config init()...")
-	configPath := pflag.StringP("config", "c", "config.toml", "config file")
+	configPath := pflag.StringP("config", "c", "config.yaml", "config file")
 	pflag.Parse()
 	logrus.Info("Config file: ", *configPath)
 
@@ -23,8 +23,8 @@ func init() {
 		logrus.Fatalf("Read config file: %v error: %v", *configPath, err)
 	}
 
-	logrus.SetFormatter(&logrus.TextFormatter{FullTimestamp: viper.GetBool("log.showFullTime")})
-	if viper.GetBool("log.reportCaller") {
+	logrus.SetFormatter(&logrus.TextFormatter{FullTimestamp: viper.GetBool("log.show_fulltime")})
+	if viper.GetBool("log.report_caller") {
 		logrus.Info("Logrus: enable report caller")
 		logrus.SetReportCaller(true)
 	}

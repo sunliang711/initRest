@@ -56,11 +56,11 @@ func ParseJwtToken(token string, key string) (*jwt.Token, error) {
 	//token2User[t.Raw] = t.Claims.(jwt.MapClaims)["phone"].(string)
 }
 
-// GetValueFromJwtToken 从ctx中解析jwt token(token存在于请求头的"jwt.headerName"中)
+// GetValueFromJwtToken 从ctx中解析jwt token(token存在于请求头的"jwt.header_name"中)
 // 并从解析出来的对象中取得mapkey的值(interface{}类型) v，进一步可使用v.(someType)来转成具体类型
 func GetValueFromJwtToken(ctx *gin.Context, mapkey string) (interface{}, error) {
 
-	token := ctx.Request.Header.Get(viper.GetString("jwt.headerName"))
+	token := ctx.Request.Header.Get(viper.GetString("jwt.header_name"))
 	t, err := ParseJwtToken(token, viper.GetString("jwt.mapkey"))
 	if err != nil {
 		msg := fmt.Sprintf("Parse jwt token error: %v", err)

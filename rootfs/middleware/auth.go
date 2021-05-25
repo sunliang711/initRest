@@ -12,7 +12,7 @@ const (
 )
 
 func Auth(c *gin.Context) {
-	token := c.Request.Header.Get(viper.GetString("jwt.headerName"))
+	token := c.Request.Header.Get(viper.GetString("jwt.header_name"))
 	_, err := utils.ParseJwtToken(token, viper.GetString("jwt.key"))
 	if err != nil {
 		c.JSON(400, gin.H{

@@ -18,7 +18,7 @@ func main() {
 
 	addr := fmt.Sprintf(":%d", viper.GetInt("server.port"))
 	tls := viper.GetBool("tls.enable")
-	certFile := viper.GetString("tls.certFile")
-	keyFile := viper.GetString("tls.keyFile")
+	certFile := viper.GetString("tls.cert_file")
+	keyFile := viper.GetString("tls.key_file")
 	router.StartServer(addr, tls, certFile, keyFile)
 }

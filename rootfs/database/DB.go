@@ -57,7 +57,7 @@ func initMysql(dsn string) {
 		}
 
 	} else {
-		MysqlConn, err = umysql.New(dsn, viper.GetInt("mysql.maxIdleConns"), viper.GetInt("mysql.maxOpenConns"))
+		MysqlConn, err = umysql.New(dsn, viper.GetInt("mysql.max_idle_conns"), viper.GetInt("mysql.max_open_conns"))
 		if err != nil {
 			panic(err)
 		}
